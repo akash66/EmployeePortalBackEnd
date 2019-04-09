@@ -1,0 +1,2 @@
+# KATA
+Societe Generale KATA
