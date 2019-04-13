@@ -1,5 +1,5 @@
 # KATA
-Societe Generale KATA
+Employee Portal Backend Repository
 
 # Running Application
 mvn spring-boot:run
