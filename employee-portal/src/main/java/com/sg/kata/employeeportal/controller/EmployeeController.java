@@ -33,7 +33,7 @@ public class EmployeeController {
 	}
 
 	@GetMapping(path = "/employees")
-	ResponseEntity<List<Employee>> getEmployees(
+	ResponseEntity<List<Employee>> getSortedAndOrderedEmployees(
 			@ApiParam(allowableValues = "ASC,DESC") @RequestParam("sortBy") String sortBy,
 			@ApiParam(allowableValues = "firstName,lastName,gender,dateOfBirth,department") @RequestParam("orderBy") String orderBy) {
 		List<Employee> employees = employeeService.getSortedAndOrderedEmployees(sortBy, orderBy);
