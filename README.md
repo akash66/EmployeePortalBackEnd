@@ -1,7 +1,7 @@
 # KATA
 Employee Portal Backend Repository
 
-# Running Application
+# Run Application
 mvn spring-boot:run
 
 # Swagger API
