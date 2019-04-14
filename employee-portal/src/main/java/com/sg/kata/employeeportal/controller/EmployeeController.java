@@ -28,7 +28,7 @@ public class EmployeeController {
 
 	@PostMapping(path = "/employees")
 	ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
-		return new ResponseEntity<Employee>(employeeService.create(employee), HttpStatus.CREATED);
+		return new ResponseEntity<Employee>(employeeService.createEmployee(employee), HttpStatus.CREATED);
 
 	}
 
@@ -36,7 +36,7 @@ public class EmployeeController {
 	ResponseEntity<List<Employee>> getEmployees(
 			@ApiParam(allowableValues = "ASC,DESC") @RequestParam("sortBy") String sortBy,
 			@ApiParam(allowableValues = "firstName,lastName,gender,dateOfBirth,department") @RequestParam("orderBy") String orderBy) {
-		List<Employee> employees = employeeService.getEmployees(sortBy, orderBy);
+		List<Employee> employees = employeeService.getSortedAndOrderedEmployees(sortBy, orderBy);
 		if (null == employees || employees.isEmpty())
 			return new ResponseEntity<List<Employee>>(HttpStatus.BAD_REQUEST);
 		else

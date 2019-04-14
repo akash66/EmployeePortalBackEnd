@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import com.sg.kata.employeeportal.model.Employee;
 import com.sg.kata.employeeportal.repository.EmployeeRepository;
@@ -22,13 +21,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	@Transactional
-	public Employee create(Employee employee) {
+	public Employee createEmployee(Employee employee) {
 		return employeeRepository.save(employee);
 	}
 
 	@Override
 	@Transactional
-	public List<Employee> getEmployees(String sortBy, String orderBy) {
+	public List<Employee> getSortedAndOrderedEmployees(String sortBy, String orderBy) {
 		if (ASC.equalsIgnoreCase(sortBy))
 			return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, orderBy));
 		else
